@@ -1,0 +1,145 @@
+<?xml version="1.0"?>
+<project
+		xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+		xmlns="http://maven.apache.org/POM/4.0.0"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+		<modelVersion>4.0.0</modelVersion>
+
+		<parent>
+				<groupId>de.drklein.multiplication</groupId>
+				<artifactId>configPom</artifactId>
+				<version>1.0-SNAPSHOT</version>
+				<relativePath>../configPom/pom.xml</relativePath>
+		</parent>
+
+		<artifactId>application</artifactId>
+		<packaging>jar</packaging>
+
+		<name>multiplication-application</name>
+
+		<url>http://maven.apache.org</url>
+
+		<dependencies>
+
+				<!-- LOGGING DEPENDENCIES - LOG4J -->
+				<!-- LOGGING -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-slf4j-impl</artifactId>
+			<version>${log4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>${log4j.version}</version>
+		</dependency>
+				<dependency>
+						<groupId>org.slf4j</groupId>
+						<artifactId>slf4j-log4j12</artifactId>
+						<version>${slf4j.version}</version>
+				</dependency>
+
+				<!-- JUNIT DEPENDENCY FOR TESTING -->
+				<dependency>
+						<groupId>junit</groupId>
+						<artifactId>junit</artifactId>
+						<version>${junit.version}</version>
+						<scope>test</scope>
+				</dependency>
+
+				<!-- Mockito -->
+				<dependency>
+						<groupId>org.mockito</groupId>
+						<artifactId>mockito-all</artifactId>
+						<version>${mockito.version}</version>
+						<scope>test</scope>
+				</dependency>
+
+
+				<!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
+				<dependency>
+						<groupId>com.google.guava</groupId>
+						<artifactId>guava</artifactId>
+						<version>28.0-jre</version>
+				</dependency>
+		</dependencies>
+
+		<build>
+				<finalName>demo-application</finalName>
+
+				<plugins>
+						<plugin>
+								<groupId>org.apache.maven.plugins</groupId>
+								<artifactId>maven-compiler-plugin</artifactId>
+								<version>${compiler-plugin.version}</version>
+								<configuration>
+										<source>${java.version}</source>
+										<target>${java.version}</target>
+										<encoding>${project.build.sourceEncoding}</encoding>
+										<showWarnings>true</showWarnings>
+										<showDeprecation>true</showDeprecation>
+								</configuration>
+						</plugin>
+
+
+						<plugin>
+								<groupId>org.codehaus.mojo</groupId>
+								<artifactId>build-helper-maven-plugin</artifactId>
+								<version>${build-helper-plugin.version}</version>
+								<executions>
+										<execution>
+												<id>add-source</id>
+												<phase>generate-sources</phase>
+												<goals>
+														<goal>add-source</goal>
+												</goals>
+												<configuration>
+														<sources>
+																<source>${project.build.directory}/generated-sources/meta-model</source>
+														</sources>
+												</configuration>
+										</execution>
+										<execution>
+												<id>add-test-source</id>
+												<phase>generate-test-sources</phase>
+												<goals>
+														<goal>add-test-source</goal>
+												</goals>
+												<configuration>
+														<sources>
+																<source>src/integration/java</source>
+														</sources>
+												</configuration>
+										</execution>
+								</executions>
+						</plugin>
+
+
+						<plugin>
+								<groupId>org.apache.maven.plugins</groupId>
+								<artifactId>maven-assembly-plugin</artifactId>
+								<executions>
+										<execution>
+												<id>package-jar-with-dependencies</id>
+												<phase>package</phase>
+												<goals>
+														<goal>single</goal>
+												</goals>
+												<configuration>
+														<appendAssemblyId>false</appendAssemblyId>
+														<descriptorRefs>
+																<descriptorRef>jar-with-dependencies</descriptorRef>
+														</descriptorRefs>
+														<archive>
+																<manifest>
+																		<mainClass>demo.application.Main</mainClass>
+																</manifest>
+														</archive>
+												</configuration>
+										</execution>
+								</executions>
+						</plugin>
+
+				</plugins>
+		</build>
+</project>

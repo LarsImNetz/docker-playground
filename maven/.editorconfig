@@ -1,0 +1,21 @@
+# EditorConfig is awesome: https://EditorConfig.org
+
+# Unix-style newlines with a newline ending every file
+[*]
+end_of_line = lf
+insert_final_newline = true
+
+# 2 tab indentation
+[*.{java,xml}]
+indent_style = tab
+indent_size = 2
+
+# 4 spaces indentation
+[*.{vcl,sh}]
+indent_style = space
+indent_size = 4
+
+# 2 spaces indentation
+[*.{yml,yaml,json}]
+indent_style = space
+indent_size = 2
