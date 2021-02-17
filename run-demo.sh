@@ -13,8 +13,11 @@ fi
 # CONTAINER=openjdk:8u222-jdk-slim
 
 
-NAME=openjdk-11-$$
-CONTAINER=openjdk:11.0.3-jdk-slim-stretch
+# NAME=openjdk-11-$$
+# CONTAINER=openjdk:11.0.3-jdk-slim-stretch
+
+NAME=openjdk-14
+CONTAINER=openjdk:14.0-jdk
 
 # we use docker to run our java program
 docker run \
