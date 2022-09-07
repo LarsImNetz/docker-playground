@@ -1,0 +1,27 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="container">
+  <!--  [ngFormOptions]="{updateOn: 'blur'}" -->
+  <form #f="ngForm"  [ngFormOptions]="{updateOn: 'blur'}" (ngSubmit)="willSubmit(f);" novalidate>
+  <app-todoinput
+    name="todo"
+    [textValue]="todoValue"
+    [maxlength]="12"
+    placeholder="Add Todo"
+    (textValueChange)="onTodoValueChanged($event)"
+  ></app-todoinput>
+  <app-todolist></app-todolist>
+  <app-sanitizer-text name="sanitizerText" [text]="sanitizerText"></app-sanitizer-text>
+
+  <app-textarea
+    name="kommentar"
+    [rows]="6"
+    [maxlength]="2048"
+    placeholder="Trage hier Anmerkungen ein."
+    [textValue]="kommentar"
+    (onOk)="onKommentarChanged($event)"></app-textarea>
+
+    <!--  <p>Form value: {{ f.value | json }}</p>-->
+    <!--  <p>Form valid: {{ f.valid }}</p>-->
+  </form>
+
+</div>

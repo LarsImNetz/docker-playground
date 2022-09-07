@@ -1,0 +1,18 @@
+<div class="formElement_input">
+  <div class="formElement_field formElement_field-textarea">
+    <textarea
+      class="form-control"
+      id="{{name}}"
+      [name]="name"
+      [attr.rows]="rows"
+      [attr.maxlength]="maxlength"
+      name="textarea"
+      ng-model="textarea"
+      placeholder="{{placeholder}}"
+      value="{{textValue}}"
+      #textInput
+      (change)="onInputChange(textInput.value)"
+      [required]="isRequired"></textarea>
+    <div class="formElement_errorMessage"></div>
+  </div>
+</div>

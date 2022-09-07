@@ -1,0 +1,7 @@
+<div class="data">
+  <ul class="list-instyled">
+    <li *ngFor="let todo of todoDto.getContent(); index as i;">{{todo}}
+      <i  class="material-icons" (click)="deleteItem(i)">delete</i>
+    </li>
+  </ul>
+</div>

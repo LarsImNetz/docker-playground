@@ -1,0 +1,25 @@
+.data{
+  margin-top: 1em;
+}
+.data li{
+  background: #fff;
+  border-left: 4px solid #F97300;
+  padding: 1em;
+  margin: 1em auto;
+  color: #666;
+  font-family: "Raleway";
+}
+.data li i{
+  float: right;
+  color: #888;
+  cursor: pointer;
+}
+
+ul.list-instyled {
+  padding-left: 0px;
+}
+
+.list-instyled{
+  list-style-type: none;
+
+}

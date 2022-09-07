@@ -1,0 +1,22 @@
+<div class="form-group">
+  <h1 class="text-center text-primary">Todo App</h1>
+  <div class="input-group-prepend">
+    <input
+      class="form-control"
+      id="{{name}}"
+      [name]="name"
+      type="text"
+      value="{{textValue}}"
+      placeholder="{{placeholder}}"
+      #textInput
+      (change)="onInputChange(textInput.value)"
+      [required]="isRequired"
+      [attr.maxlength]="maxlength" />
+    <span class="input-group-text" (click)="addButton(textValue)">
+          <i class="material-icons">add</i>
+        </span>
+
+  </div>
+</div>
+
+<!-- <p>First name value: {{ textValue }}</p> -->
