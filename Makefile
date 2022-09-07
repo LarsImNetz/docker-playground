@@ -1,8 +1,8 @@
 # NAME=openjdk-11
 # CONTAINER=openjdk:11.0.3-jdk-slim-stretch
 
-NAME=openjdk-14
-CONTAINER=openjdk:14.0-jdk
+NAME=openjdk-16
+CONTAINER=openjdk:16.0-jdk
 
 current_dir=$(shell pwd)
 
